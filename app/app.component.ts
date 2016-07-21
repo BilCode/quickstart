@@ -1,7 +1,28 @@
 import { Component } from '@angular/core';
+import { RepoService } from './repo.service';
+import {Repo} from "./repo";
+
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: 'app/apptemp.html',
+  providers: [RepoService]
 })
-export class AppComponent { }
+export class AppComponent {
+
+  errorMessage: string;
+  repoes: Repo[];
+
+  constructor(private repoService: RepoService) {
+    this.getHeroes();
+
+  }
+
+  getHeroes() {
+    this.repoService.getRepos()
+      .subscribe(
+        repoes => this.repoes = repoes,
+        error =>  this.errorMessage = <any>error);
+  }
+
+}
