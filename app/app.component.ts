@@ -21,7 +21,10 @@ export class AppComponent {
   getHeroes() {
     this.repoService.getRepos()
       .subscribe(
-        repoes => this.repoes = repoes,
+        repoes => {
+          this.repoes = repoes;
+        console.log("repoes ",this.repoes)
+        },
         error =>  this.errorMessage = <any>error);
   }
 

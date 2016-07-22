@@ -7,11 +7,10 @@ import 'rxjs/Rx';
 @Injectable()
 export class RepoService {
   constructor (private http: Http) {}
-  private heroesUrl = 'https://api.github.com/users/octocat/repos';  // URL to web API
-  getRepos (): Observable<Repo[]> {
+  private heroesUrl = 'https://api.github.com/users/google/repos';  // URL to web API
+  getRepos () {
     return this.http.get(this.heroesUrl)
-      .map(request => <string[]> request.json()[1])
-      .catch(this.handleError);
+      .map(response =>  response.json());
   }
   private extractData(res: Response) {
     let body = res.json();

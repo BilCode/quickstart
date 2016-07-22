@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
 <h1>Tour of Repos </h1>
-<h3>Heroes:</h3>
+<h3>Repositories:</h3>
 <ul>
-  <li *ngFor="let hero of repoes">
-    {{hero.name}}
+  <li *ngFor="let repo of repoes">
+    {{repo.name}}
   </li>
 </ul>
-<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-</body>
-</html>
+
