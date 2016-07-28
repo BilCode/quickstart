@@ -14,18 +14,22 @@ export class AppComponent {
   repoes: Repo[];
 
   constructor(private repoService: RepoService) {
-    this.getHeroes();
-
+    this.getHeroes("google");
   }
 
-  getHeroes() {
-    this.repoService.getRepos()
+  getHeroes(reponame:String) {
+    this.repoService.getRepos(reponame)
       .subscribe(
         repoes => {
           this.repoes = repoes;
-        console.log("repoes ",this.repoes)
+          console.log("repoes ",this.repoes)
         },
         error =>  this.errorMessage = <any>error);
+  }
+
+  // with strong typing
+  onKey(event: KeyboardEvent) {
+    this.getHeroes((<HTMLInputElement>event.target).value);
   }
 
 }

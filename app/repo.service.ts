@@ -8,7 +8,8 @@ import 'rxjs/Rx';
 export class RepoService {
   constructor (private http: Http) {}
   private heroesUrl = 'https://api.github.com/users/google/repos';  // URL to web API
-  getRepos () {
+  getRepos (reponame :String) {
+    this.heroesUrl = 'https://api.github.com/users/'+reponame+'/repos';
     return this.http.get(this.heroesUrl)
       .map(response =>  response.json());
   }

@@ -1,6 +1,8 @@
 
 <h1>Tour of Repos </h1>
-<h3>Repositories:</h3>
+<h3>Repositories of {{box.value}}:</h3>
+<input #box  type="text" class="form-control" id="usr"  (keyup)="onKey($event)">
+
 <ul>
   <li *ngFor="let repo of repoes">
     {{repo.name}}
